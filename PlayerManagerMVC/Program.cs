@@ -1,12 +1,26 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace PlayerManagerMVC
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            // List of player is our model
+            List<Player> list = new List<Player>()
+            {
+                new Player("Pedro", 50),
+                new Player("Verde", 42),
+            };
+
+            // Create controller
+            Controller controller = new Controller(list);
+
+            // Create view
+            IView view = new UglyView(controller);
+
+            // Start program
+            controller.Run(view);
         }
     }
 }
