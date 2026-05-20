@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Principal;
+using System.IO;
 
 namespace PlayerManagerMVC2
 {
@@ -19,12 +19,22 @@ namespace PlayerManagerMVC2
             IComparer<Player> byName = new CompareByName(true);
             IComparer<Player> byNameReverse = new CompareByName(false);
 
+            string s;
+            using StreamReader sr = new StreamReader(args[0]);
+            PlayerList playerList = new PlayerList();
+
+
             // Initialize the player list with two players using collection
             // initialization syntax
-            PlayerList playerList = new PlayerList {
-                new Player("Best player ever", 100),
-                new Player("An even better player", 500)
-            };
+            while((s = sr.ReadLine()) != null)
+            {
+                int lastSpace = s.LastIndexOf(' ');
+
+                string name = s.Substring(0, lastSpace);
+                int score = int.Parse(s.Substring(lastSpace + 1));
+
+                playerList.Add(new Player(name, score));
+            }
             
             IView view = new UglyView();
             Controller controller = new Controller(playerList, byName, byNameReverse);

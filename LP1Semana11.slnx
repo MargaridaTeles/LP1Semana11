@@ -2,4 +2,5 @@
   <Folder Name="/PlayerManagerMVC/">
     <Project Path="PlayerManagerMVC/PlayerManagerMVC.csproj" />
   </Folder>
+  <Project Path="PlayerManagerMVC2/PlayerManagerMVC2.csproj" />
 </Solution>
