@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace StringGenerator
 {
-    public class View
+    public class Model
     {
-        public void WriteOutput(string output)
+        public int Seed { get; private set; }
+        public Model(int seed)
         {
-            Console.WriteLine(output);
+            Seed = seed;
         }
     }
 }

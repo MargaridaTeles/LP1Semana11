@@ -6,11 +6,11 @@ namespace StringGenerator
     {
         static void Main(string[] args)
         {
-            int seed = int.Parse(args[0]);
+            Model model = new Model(int.Parse(args[0]));
 
             string output = Generator.Generate(seed);
 
-            IView view = new View();
+            View view = new View();
             view.WriteOutput(output);
         }
     }
