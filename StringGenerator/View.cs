@@ -11,5 +11,10 @@ namespace StringGenerator
         {
             Console.WriteLine(output);
         }
+
+        public void ErrorMessage()
+        {
+            Console.WriteLine("Nope");
+        }
     }
 }

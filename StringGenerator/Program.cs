@@ -6,12 +6,13 @@ namespace StringGenerator
     {
         static void Main(string[] args)
         {
-            Model model = new Model(int.Parse(args[0]));
+            Model model = new Model(args[0]);
 
             Controller controller = new Controller();
 
             View view = new View();
-            view.WriteOutput(controller.Generate(model));
+            controller.Run(view, model);
+            
         }
     }
 }

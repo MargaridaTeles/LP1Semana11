@@ -6,10 +6,18 @@ namespace StringGenerator
     public class Controller
     {
         private const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        
+        public void Run(View view, Model model)
+        {
+            if (int.TryParse(model.Seed, out int seed))
+                view.WriteOutput(Generate(model));
+            else
+                view.ErrorMessage();
+        }
 
         public string Generate(Model model, int length = 16)
         {
-            Random rng = new Random(model.Seed);
+            Random rng = new Random(int.Parse(model.Seed));
 
             StringBuilder result = new StringBuilder(length);
 

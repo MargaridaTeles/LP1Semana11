@@ -7,8 +7,8 @@ namespace StringGenerator
 {
     public class Model
     {
-        public int Seed { get; private set; }
-        public Model(int seed)
+        public string Seed { get; private set; }
+        public Model(string seed)
         {
             Seed = seed;
         }
