@@ -8,10 +8,10 @@ namespace StringGenerator
         {
             Model model = new Model(int.Parse(args[0]));
 
-            string output = Generator.Generate(seed);
+            Controller controller = new Controller();
 
             View view = new View();
-            view.WriteOutput(output);
+            view.WriteOutput(controller.Generate(model));
         }
     }
 }

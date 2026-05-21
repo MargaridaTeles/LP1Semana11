@@ -3,13 +3,13 @@ using System.Text;
 
 namespace StringGenerator
 {
-    public class Generator
+    public class Controller
     {
         private const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-        public static string Generate(int seed, int length = 16)
+        public string Generate(Model model, int length = 16)
         {
-            Random rng = new Random(seed);
+            Random rng = new Random(model.Seed);
 
             StringBuilder result = new StringBuilder(length);
 
